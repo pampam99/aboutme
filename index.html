@@ -12,7 +12,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 .page.active{display:block}
 @keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;border-bottom:0.5px solid #e0e0d8;position:sticky;top:0;background:#fff;z-index:10}
-.nav-logo{font-size:15px;font-weight:500;color:#1a1a1a;cursor:pointer;text-decoration:none}
+.nav-logo{font-size:15px;font-weight:500;color:#1a1a1a;cursor:pointer}
 .nav-links{display:flex;gap:8px}
 .nav-btn{padding:6px 14px;border-radius:8px;border:0.5px solid #d0d0c8;background:transparent;cursor:pointer;font-size:13px;color:#555;transition:all 0.2s;font-family:inherit}
 .nav-btn:hover{background:#f0f0ec}
@@ -78,6 +78,8 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2
 .metric-label{font-size:12px;color:#888;margin-bottom:4px}
 .metric-val{font-size:22px;font-weight:500;color:#1a1a1a}
 .metric-sub{font-size:11px;color:#888;margin-top:2px}
+.article-body{line-height:1.9;font-size:14px;color:#333}
+.article-body p{margin-bottom:1rem}
 footer{text-align:center;padding:2rem;border-top:0.5px solid #e0e0d8;font-size:12px;color:#888;margin-top:2rem}
 footer a{color:#888;text-decoration:none}
 </style>
@@ -142,6 +144,7 @@ footer a{color:#888;text-decoration:none}
     <button class="tab-btn" onclick="switchTab('audit','blog')">Articles</button>
     <button class="tab-btn" onclick="switchTab('audit','exp')">Experience</button>
   </div>
+
   <div class="tab-content active-tab" id="audit-about">
     <div class="about-card">
       <h3>Who I am</h3>
@@ -174,32 +177,39 @@ footer a{color:#888;text-decoration:none}
       </div>
     </div>
   </div>
+
   <div class="tab-content" id="audit-blog">
-    <div class="blog-header">
-      <h2>Articles — Audit</h2>
+    <div id="audit-article-list">
+      <div class="blog-header"><h2>Articles — Audit</h2></div>
+      <div class="article-card audit-hover" onclick="showArticle('audit-art-1','audit-article-list')">
+        <div class="article-meta">Karier · Pengalaman Pribadi</div>
+        <h3>3 Tahun Jadi Auditor: Dari Fresh Grad yang Bingung sampai Sadar Burnout itu Nyata</h3>
+        <p>Perjalanan gua dari fresh grad yang overwhelmed sampai akhirnya sadar burnout itu nyata dan perlu didengarkan.</p>
+        <span class="article-tag purple">Karier</span>
+        <span class="article-tag purple" style="margin-left:4px">Audit</span>
+        <span class="article-tag purple" style="margin-left:4px">Tips</span>
+      </div>
     </div>
-    <div class="article-card audit-hover">
+    <div id="audit-art-1" style="display:none">
+      <button onclick="hideArticle('audit-art-1','audit-article-list')" style="display:flex;align-items:center;gap:6px;border:none;background:none;cursor:pointer;font-size:13px;color:#555;margin-bottom:1.5rem;padding:0;font-family:inherit"><i class="ti ti-arrow-left"></i> Kembali ke daftar</button>
       <div class="article-meta">Karier · Pengalaman Pribadi</div>
-      <h3>3 Tahun Jadi Auditor: Dari Fresh Grad yang Bingung sampai Sadar Burnout itu Nyata</h3>
-      <p style="line-height:1.8;font-size:14px;color:#333;margin-top:12px">
-        Gua mulai karier sebagai fresh graduate, langsung terjun jadi Associate di RSM Indonesia di bagian Financial Services, salah satu industri yang paling strict soal regulasi. Jujur? Susah banget. Bukan cuma soal teknisnya, tapi soal tekanannya juga.
-        <br><br>
-        Namanya auditor baru, push dari senior, manager, sampai klien itu udah makanan sehari-hari. Deadline mepet, ekspektasi tinggi, dan gua belum tau apa-apa. Tahun pertama itu berat. Tapi gua lewatin.
-        <br><br>
-        Masuk tahun kedua, mulai ada titik terang. Gua inget banget ada kalimat yang sering didenger: <em>"semakin lo ngerti, semakin gampang."</em>         Tapi gua belajar bahwa kalimat itu setengah bohong, karena dunia audit itu dinamis, regulasi berubah, klien berubah, ekspektasi berubah. Ga ada yang bener-bener "settle." Yang berubah cuma cara lo ngehadapinnya.
-        <br><br>
-        Tahun ketiga, secara teknis gua udah jauh lebih paham. Tapi justru di situ burnout-nya makin terasa. Lo ngerti apa yang harus dikerjain, tapi energi lo udah beda. Itu sinyal yang akhirnya gua dengerin.
-        <br><br>
-        Gua memutuskan resign — bukan karena menyerah, tapi untuk melanjutkan S2 Akuntansi dan grow di jalur yang lebih gua mau.
-        <br><br>
-        <strong style="color:#1a1a1a">Tips dari gua buat yang mau masuk audit:</strong><br>
-        Kuasain Excel dulu. Serius. Akuntansi itu pada dasarnya logika, sesuatu yang keluar pasti ada yang masuk (debit-kredit). Kalau lo udah paham logika itu dan bisa eksekusi di Excel, tinggal nambah tools analitik lain. Sisanya bakal lebih gampang diikutin.
-      </p>
-      <span class="article-tag purple">Karier</span>
-      <span class="article-tag purple" style="margin-left:4px">Audit</span>
-      <span class="article-tag purple" style="margin-left:4px">Tips</span>
+      <h3 style="font-size:18px;font-weight:500;margin-bottom:1.5rem;line-height:1.5">3 Tahun Jadi Auditor: Dari Fresh Grad yang Bingung sampai Sadar Burnout itu Nyata</h3>
+      <div class="article-body">
+        <p>Gua mulai karier sebagai fresh graduate, langsung terjun jadi Associate di RSM Indonesia di bagian Financial Services, salah satu industri yang paling strict soal regulasi. Jujur? Susah banget. Bukan cuma soal teknisnya, tapi soal tekanannya juga.</p>
+        <p>Namanya auditor baru, push dari senior, manager, sampai klien itu udah makanan sehari-hari. Deadline mepet, ekspektasi tinggi, dan gua belum tau apa-apa. Tahun pertama itu berat. Tapi gua lewatin.</p>
+        <p>Masuk tahun kedua, mulai ada titik terang. Gua inget banget ada kalimat yang sering didenger: <em>"semakin lo ngerti, semakin gampang."</em> Tapi gua belajar bahwa kalimat itu setengah bohong. Dunia audit itu dinamis, regulasi berubah, klien berubah, ekspektasi berubah. Ga ada yang bener-bener "settle." Yang berubah cuma cara lo ngehadapinnya.</p>
+        <p>Tahun ketiga, secara teknis gua udah jauh lebih paham. Tapi justru di situ burnout-nya makin terasa. Lo ngerti apa yang harus dikerjain, tapi energi lo udah beda. Itu sinyal yang akhirnya gua dengerin.</p>
+        <p>Gua memutuskan resign. Bukan karena menyerah, tapi untuk melanjutkan S2 Akuntansi dan grow di jalur yang lebih gua mau.</p>
+        <p><strong style="color:#1a1a1a">Tips dari gua buat yang mau masuk audit:</strong><br>Kuasain Excel dulu. Serius. Akuntansi itu pada dasarnya logika, sesuatu yang keluar pasti ada yang masuk (debit-kredit). Kalau lo udah paham logika itu dan bisa eksekusi di Excel, tinggal nambah tools analitik lain. Sisanya bakal lebih gampang diikutin.</p>
+      </div>
+      <div style="margin-top:1.5rem">
+        <span class="article-tag purple">Karier</span>
+        <span class="article-tag purple" style="margin-left:4px">Audit</span>
+        <span class="article-tag purple" style="margin-left:4px">Tips</span>
+      </div>
     </div>
   </div>
+
   <div class="tab-content" id="audit-exp">
     <div class="about-card">
       <h3>Big 4 — Senior Auditor</h3>
@@ -247,7 +257,7 @@ footer a{color:#888;text-decoration:none}
     </div>
     <div class="about-card">
       <h3>Philosophy</h3>
-      <p>Ga pernah ngajak beli. Diskusi bareng-bareng. Sama-sama belajar. Semua yang ditulis di sini bukan rekomendasi investasi — murni opini dan edukasi.</p>
+      <p>Ga pernah ngajak beli. Diskusi bareng-bareng. Sama-sama belajar. Semua yang ditulis di sini bukan rekomendasi investasi, murni opini dan edukasi.</p>
     </div>
   </div>
   <div class="tab-content" id="fin-blog">
@@ -325,7 +335,7 @@ footer a{color:#888;text-decoration:none}
     </div>
     <div class="about-card">
       <h3>Motivasi</h3>
-      <p>S2 bukan sekadar gelar — ini tentang memperdalam pemahaman di bidang yang gua passion-in: audit, governance, dan finance berbasis data. Sambil kerja, sambil belajar, sambil investasi.</p>
+      <p>S2 bukan sekadar gelar. Ini tentang memperdalam pemahaman di bidang yang gua passion-in: audit, governance, dan finance berbasis data. Sambil kerja, sambil belajar, sambil investasi.</p>
     </div>
   </div>
   <div class="tab-content" id="s2-courses">
@@ -348,7 +358,7 @@ footer a{color:#888;text-decoration:none}
     <div class="article-card s2-hover">
       <div class="article-meta">Semester aktif</div>
       <h3>Business Ethics</h3>
-      <p>Etika bisnis dan AI governance — termasuk studi kasus penggunaan AI dalam pelaporan keuangan perusahaan.</p>
+      <p>Etika bisnis dan AI governance, termasuk studi kasus penggunaan AI dalam pelaporan keuangan perusahaan.</p>
       <span class="article-tag amber">Ethics & AI</span>
     </div>
   </div>
@@ -377,7 +387,7 @@ footer a{color:#888;text-decoration:none}
     </div>
     <div class="about-card">
       <h3>Realita yang gua jalanin</h3>
-      <p>Kerja full-time, kuliah S2, sambil tetap invest dan belajar hal baru. Bukan hal yang mudah — tapi bisa dijalani kalau sistemnya bener.</p>
+      <p>Kerja full-time, kuliah S2, sambil tetap invest dan belajar hal baru. Bukan hal yang mudah, tapi bisa dijalani kalau sistemnya bener.</p>
     </div>
     <div class="article-card s2-hover">
       <div class="article-meta">Tips · Time Management</div>
@@ -388,7 +398,7 @@ footer a{color:#888;text-decoration:none}
     <div class="article-card s2-hover">
       <div class="article-meta">Tips · Produktivitas</div>
       <h3>Tools yang Gua Pakai Buat Stay Organized</h3>
-      <p>Dari Notion buat jadwal, VS Code buat Python, sampai Excel buat tracking semua hal — sistem sederhana yang works.</p>
+      <p>Dari Notion buat jadwal, VS Code buat Python, sampai Excel buat tracking semua hal. Sistem sederhana yang works.</p>
       <span class="article-tag amber">Produktivitas</span>
     </div>
     <div class="article-card s2-hover">
@@ -402,16 +412,7 @@ footer a{color:#888;text-decoration:none}
 </div>
 
 <script>
-function showArticle(id){
-  const list=id.replace(/-article-\d+$/,'-article-list');
-  document.getElementById(list).style.display='none';
-  document.getElementById(id).style.display='block';
-}
-function hideArticle(id){
-  const list=id.replace(/-article-\d+$/,'-article-list');
-  document.getElementById(id).style.display='none';
-  document.getElementById(list).style.display='block';
-}
+function goHome(){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-home').classList.add('active');
 }
@@ -425,6 +426,14 @@ function switchTab(mode,tab){
   page.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active-tab'));
   page.querySelector('[onclick="switchTab(\''+mode+'\',\''+tab+'\')"]').classList.add('active-tab');
   document.getElementById(mode+'-'+tab).classList.add('active-tab');
+}
+function showArticle(artId, listId){
+  document.getElementById(listId).style.display='none';
+  document.getElementById(artId).style.display='block';
+}
+function hideArticle(artId, listId){
+  document.getElementById(artId).style.display='none';
+  document.getElementById(listId).style.display='block';
 }
 </script>
 </body>
