@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Faiz Wibowo — Auditor & Financial Planner</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f9f9f7;color:#1a1a1a;min-height:100vh}
+.page{display:none;animation:fadeIn 0.4s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+
+nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem;border-bottom:0.5px solid #e0e0d8;position:sticky;top:0;background:#fff;z-index:10}
+.nav-logo{font-size:15px;font-weight:500;color:#1a1a1a;cursor:pointer;text-decoration:none}
+.nav-links{display:flex;gap:8px}
+.nav-btn{padding:6px 14px;border-radius:8px;border:0.5px solid #d0d0c8;background:transparent;cursor:pointer;font-size:13px;color:#555;transition:all 0.2s;font-family:inherit}
+.nav-btn:hover{background:#f0f0ec}
+.nav-btn.active-mode{background:#7F77DD;color:#fff;border-color:#7F77DD}
+.nav-btn.active-mode.fin{background:#1D9E75;border-color:#1D9E75}
+.back-btn{font-size:13px;color:#555;cursor:pointer;display:flex;align-items:center;gap:4px;border:none;background:none;padding:0;font-family:inherit}
+.back-btn:hover{color:#1a1a1a}
+
+.hero{padding:4rem 2rem 3rem;text-align:center}
+.avatar{width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:500;margin:0 auto 1.5rem;background:linear-gradient(135deg,#AFA9EC,#5DCAA5);color:#fff}
+.hero h1{font-size:28px;font-weight:500;color:#1a1a1a;margin-bottom:8px}
+.hero p{font-size:15px;color:#666;max-width:420px;margin:0 auto 2rem;line-height:1.7}
+.tag{display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;margin:0 4px 8px;border:0.5px solid}
+.tag.purple{background:#EEEDFE;color:#3C3489;border-color:#AFA9EC}
+.tag.teal{background:#E1F5EE;color:#085041;border-color:#5DCAA5}
+.tag.coral{background:#FAECE7;color:#712B13;border-color:#F0997B}
+
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:560px;margin:2rem auto 0}
+@media(max-width:480px){.mode-grid{grid-template-columns:1fr}}
+.mode-card{padding:2rem 1.5rem;border-radius:12px;border:0.5px solid #e0e0d8;cursor:pointer;transition:all 0.25s;text-align:left;background:#fff}
+.mode-card:hover{transform:translateY(-4px)}
+.mode-card.audit:hover{border-color:#7F77DD}
+.mode-card.fin:hover{border-color:#1D9E75}
+.mode-icon{width:48px;height:48px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;font-size:22px}
+.mode-icon.purple{background:#EEEDFE}
+.mode-icon.teal{background:#E1F5EE}
+.mode-card h2{font-size:16px;font-weight:500;color:#1a1a1a;margin-bottom:6px}
+.mode-card p{font-size:13px;color:#666;line-height:1.6;margin-bottom:1rem}
+.mode-cta{font-size:12px;font-weight:500;display:flex;align-items:center;gap:4px}
+.mode-cta.purple{color:#534AB7}
+.mode-cta.teal{color:#0F6E56}
+
+.inner-nav{display:flex;gap:6px;padding:0 2rem;border-bottom:0.5px solid #e0e0d8;overflow-x:auto;background:#fff}
+.tab-btn{padding:12px 16px;font-size:13px;border:none;background:none;cursor:pointer;color:#666;border-bottom:2px solid transparent;white-space:nowrap;transition:all 0.2s;font-family:inherit}
+.tab-btn.active-tab{color:#534AB7;border-bottom-color:#534AB7;font-weight:500}
+.tab-btn.active-tab.fin-tab{color:#0F6E56;border-bottom-color:#0F6E56}
+.tab-content{display:none;padding:2rem;max-width:720px;margin:0 auto}
+.tab-content.active-tab{display:block}
+
+.about-card{background:#f5f5f0;border-radius:12px;padding:1.5rem;margin-bottom:1rem}
+.about-card h3{font-size:11px;font-weight:500;color:#888;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px}
+.about-card p{font-size:14px;color:#1a1a1a;line-height:1.7}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.skill-tag{padding:4px 10px;border-radius:20px;font-size:12px;background:#fff;border:0.5px solid #d0d0c8;color:#555}
+
+.blog-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+.blog-header h2{font-size:18px;font-weight:500}
+.coming-badge{background:#EEEDFE;color:#3C3489;font-size:11px;padding:3px 10px;border-radius:20px}
+.coming-badge.teal{background:#E1F5EE;color:#085041}
+.article-card{border:0.5px solid #e0e0d8;border-radius:12px;padding:1.25rem;margin-bottom:12px;background:#fff;cursor:pointer;transition:border-color 0.2s}
+.article-card:hover{border-color:#AFA9EC}
+.article-card.fin-hover:hover{border-color:#5DCAA5}
+.article-meta{font-size:11px;color:#888;margin-bottom:6px}
+.article-card h3{font-size:14px;font-weight:500;color:#1a1a1a;margin-bottom:4px}
+.article-card p{font-size:13px;color:#666;line-height:1.6}
+.article-tag{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;margin-top:8px}
+.article-tag.purple{background:#EEEDFE;color:#3C3489}
+.article-tag.teal{background:#E1F5EE;color:#085041}
+
+.tracker-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:1.5rem}
+.metric-card{background:#f5f5f0;border-radius:8px;padding:1rem}
+.metric-label{font-size:12px;color:#888;margin-bottom:4px}
+.metric-val{font-size:22px;font-weight:500;color:#1a1a1a}
+.metric-sub{font-size:11px;color:#888;margin-top:2px}
+
+footer{text-align:center;padding:2rem;border-top:0.5px solid #e0e0d8;font-size:12px;color:#888;margin-top:2rem}
+footer a{color:#888;text-decoration:none}
+</style>
+</head>
+<body>
+
+<!-- LANDING PAGE -->
+<div class="page active" id="page-home">
+  <nav>
+    <a class="nav-logo" onclick="goHome()">faizwibowo.id</a>
+    <div class="nav-links">
+      <button class="nav-btn" onclick="openMode('audit')"><i class="ti ti-search"></i> Auditor</button>
+      <button class="nav-btn" onclick="openMode('fin')"><i class="ti ti-chart-bar"></i> Financial Planner</button>
+    </div>
+  </nav>
+  <div class="hero">
+    <div class="avatar">FW</div>
+    <h1>Mohammad Faiz Wibowo</h1>
+    <p>Auditor turned finance enthusiast. Passionate about numbers, markets, and making sense of both.</p>
+    <div style="margin-bottom:1.5rem">
+      <span class="tag purple">Audit & Assurance</span>
+      <span class="tag teal">FP&A</span>
+      <span class="tag coral">Equity Research</span>
+      <span class="tag purple">PSAK / IFRS</span>
+      <span class="tag teal">Python & SQL</span>
+    </div>
+    <p style="font-size:13px;color:#888;margin-bottom:1rem">Pilih dunia yang mau lo explore 👇</p>
+    <div class="mode-grid">
+      <div class="mode-card audit" onclick="openMode('audit')">
+        <div class="mode-icon purple"><i class="ti ti-search" style="color:#534AB7;font-size:22px"></i></div>
+        <h2>Auditor</h2>
+        <p>Audit insights, governance, forensic accounting, dan perjalanan karier di dunia assurance.</p>
+        <span class="mode-cta purple">Masuk ke dunia ini <i class="ti ti-arrow-right"></i></span>
+      </div>
+      <div class="mode-card fin" onclick="openMode('fin')">
+        <div class="mode-icon teal"><i class="ti ti-chart-bar" style="color:#0F6E56;font-size:22px"></i></div>
+        <h2>Financial Planner</h2>
+        <p>Analisis saham, financial planning, budgeting tips, dan opini pasar IDX & US equities.</p>
+        <span class="mode-cta teal">Masuk ke dunia ini <i class="ti ti-arrow-right"></i></span>
+      </div>
+    </div>
+  </div>
+  <footer>Made with intention · <a href="#">@faizwibowo</a> · Jakarta</footer>
+</div>
+
+<!-- AUDIT PAGE -->
+<div class="page" id="page-audit">
+  <nav>
+    <button class="back-btn" onclick="goHome()"><i class="ti ti-arrow-left"></i> Home</button>
+    <span class="nav-logo">Auditor Mode</span>
+    <button class="nav-btn active-mode" onclick="openMode('audit')"><i class="ti ti-search"></i> Auditor</button>
+  </nav>
+  <div class="inner-nav">
+    <button class="tab-btn active-tab" onclick="switchTab('audit','about')">About</button>
+    <button class="tab-btn" onclick="switchTab('audit','blog')">Articles</button>
+    <button class="tab-btn" onclick="switchTab('audit','exp')">Experience</button>
+  </div>
+  <div class="tab-content active-tab" id="audit-about">
+    <div class="about-card">
+      <h3>Who I am</h3>
+      <p>Seorang auditor dengan 3+ tahun pengalaman di RSM Indonesia, kini melanjutkan perjalanan di KPMG Indonesia sebagai Senior Audit 1. Latar belakang audit yang kuat dengan minat mendalam di forensic accounting, corporate governance, dan FP&A.</p>
+    </div>
+    <div class="about-card">
+      <h3>Education</h3>
+      <p>S1 Akuntansi — UIN Syarif Hidayatullah Jakarta (GPA 3.51)<br>S2 Magister Akuntansi — BINUS University (ongoing, target 2028)</p>
+    </div>
+    <div class="about-card">
+      <h3>Skills & tools</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Audit & Assurance</span>
+        <span class="skill-tag">Forensic Accounting</span>
+        <span class="skill-tag">PSAK / IFRS</span>
+        <span class="skill-tag">Internal Control</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Excel / VBA</span>
+        <span class="skill-tag">ACL Analytics</span>
+      </div>
+    </div>
+    <div class="about-card">
+      <h3>Certifications (in progress)</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">CFA</span>
+        <span class="skill-tag">FMVA</span>
+        <span class="skill-tag">CBCA</span>
+        <span class="skill-tag">FPAP</span>
+      </div>
+    </div>
+  </div>
+  <div class="tab-content" id="audit-blog">
+    <div class="blog-header">
+      <h2>Articles — Audit</h2>
+      <span class="coming-badge">Coming soon</span>
+    </div>
+    <div class="article-card">
+      <div class="article-meta">Draft · Forensic Accounting</div>
+      <h3>Benford's Law: Cara Deteksi Anomali di Data Keuangan</h3>
+      <p>Menggunakan analisis distribusi angka untuk mendeteksi potensi fraud dalam laporan keuangan.</p>
+      <span class="article-tag purple">Forensic</span>
+    </div>
+    <div class="article-card">
+      <div class="article-meta">Draft · Governance</div>
+      <h3>AI Governance dalam Pelaporan Keuangan: Tantangan & Peluang</h3>
+      <p>Implikasi penggunaan AI dalam proses audit dan pelaporan keuangan di era PSAK terkini.</p>
+      <span class="article-tag purple">Corporate Governance</span>
+    </div>
+    <div class="article-card">
+      <div class="article-meta">Draft · Standards</div>
+      <h3>PSAK vs IFRS: Mana yang Lebih Relevan untuk Karier Auditor?</h3>
+      <p>Perbandingan standar akuntansi lokal dan internasional dari perspektif praktisi.</p>
+      <span class="article-tag purple">PSAK / IFRS</span>
+    </div>
+  </div>
+  <div class="tab-content" id="audit-exp">
+    <div class="about-card">
+      <h3>KPMG Indonesia — Senior Audit 1</h3>
+      <p>Mulai Juli 2026 · Audit & Assurance</p>
+    </div>
+    <div class="about-card">
+      <h3>RSM Indonesia — Senior Audit Associate</h3>
+      <p>3+ tahun · Audit berbagai sektor termasuk insurance, manufacturing, dan financial services</p>
+    </div>
+    <div class="about-card">
+      <h3>Perusahaan Asuransi — Budgeting & Forecasting Officer</h3>
+      <p>Apr 2026 – Jul 2026 · FP&A, budget reallocation, OPEX analysis, Python automation</p>
+    </div>
+  </div>
+  <footer>faizwibowo.id · Auditor Mode</footer>
+</div>
+
+<!-- FIN PLANNER PAGE -->
+<div class="page" id="page-fin">
+  <nav>
+    <button class="back-btn" onclick="goHome()"><i class="ti ti-arrow-left"></i> Home</button>
+    <span class="nav-logo">Financial Planner Mode</span>
+    <button class="nav-btn active-mode fin" onclick="openMode('fin')"><i class="ti ti-chart-bar"></i> Fin Planner</button>
+  </nav>
+  <div class="inner-nav">
+    <button class="tab-btn active-tab fin-tab" onclick="switchTab('fin','about')">About</button>
+    <button class="tab-btn fin-tab" onclick="switchTab('fin','blog')">Market Views</button>
+    <button class="tab-btn fin-tab" onclick="switchTab('fin','tracker')">Tracker</button>
+  </div>
+  <div class="tab-content active-tab" id="fin-about">
+    <div class="about-card">
+      <h3>Financial side of me</h3>
+      <p>Investor individu di IDX dan US equities (via Pluang). Co-founder RF Capital — entitas investasi informal bersama partner. Tertarik di equity research, portfolio management, dan financial planning berbasis data.</p>
+    </div>
+    <div class="about-card">
+      <h3>Investment focus</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">IDX Equities</span>
+        <span class="skill-tag">US Equities</span>
+        <span class="skill-tag">TOWR</span>
+        <span class="skill-tag">MSFT</span>
+        <span class="skill-tag">Telecom & Tech</span>
+        <span class="skill-tag">Value Investing</span>
+      </div>
+    </div>
+    <div class="about-card">
+      <h3>Philosophy</h3>
+      <p>Ga pernah ngajak beli. Diskusi bareng-bareng. Sama-sama belajar. Semua yang ditulis di sini bukan rekomendasi investasi — murni opini dan edukasi.</p>
+    </div>
+  </div>
+  <div class="tab-content" id="fin-blog">
+    <div class="blog-header">
+      <h2>Market views</h2>
+      <span class="coming-badge teal">Coming soon</span>
+    </div>
+    <div class="article-card fin-hover">
+      <div class="article-meta">Draft · IDX</div>
+      <h3>TOWR: Tower Bersama di Tengah Konsolidasi Telco</h3>
+      <p>Analisis fundamental dan prospek TOWR di tengah tren konsolidasi industri telekomunikasi Indonesia.</p>
+      <span class="article-tag teal">IDX · Telco</span>
+    </div>
+    <div class="article-card fin-hover">
+      <div class="article-meta">Draft · US Equities</div>
+      <h3>MSFT: AI Tailwind dan Pertanyaan tentang Valuasi</h3>
+      <p>Seberapa jauh Azure & Copilot bisa mendorong pertumbuhan Microsoft ke depan?</p>
+      <span class="article-tag teal">MSFT · Tech</span>
+    </div>
+    <div class="article-card fin-hover">
+      <div class="article-meta">Draft · Personal Finance</div>
+      <h3>Fresh Grad & First Salary: Cara Gua Bagi Gaji di Awal Karier</h3>
+      <p>Budgeting framework sederhana yang gua pakai waktu pertama kali kerja.</p>
+      <span class="article-tag teal">Personal Finance</span>
+    </div>
+  </div>
+  <div class="tab-content" id="fin-tracker">
+    <h2 style="font-size:16px;font-weight:500;margin-bottom:1.5rem">Personal tracker</h2>
+    <div class="tracker-grid">
+      <div class="metric-card">
+        <div class="metric-label">Watchlist aktif</div>
+        <div class="metric-val">2</div>
+        <div class="metric-sub">TOWR · MSFT</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Artikel ditulis</div>
+        <div class="metric-val">0</div>
+        <div class="metric-sub">Coming soon</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">RF Capital</div>
+        <div class="metric-val">Active</div>
+        <div class="metric-sub">Co-founder</div>
+      </div>
+    </div>
+    <div class="about-card" style="margin-top:1rem">
+      <h3>Disclaimer</h3>
+      <p>Semua konten di halaman ini bukan merupakan rekomendasi investasi. Lakukan riset sendiri sebelum membuat keputusan finansial. Gua bukan financial advisor berlisensi.</p>
+    </div>
+  </div>
+  <footer>faizwibowo.id · Financial Planner Mode</footer>
+</div>
+
+<script>
+function goHome(){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-home').classList.add('active');
+}
+function openMode(mode){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+mode).classList.add('active');
+}
+function switchTab(mode,tab){
+  const page=document.getElementById('page-'+mode);
+  page.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active-tab'));
+  page.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active-tab'));
+  page.querySelector('[onclick="switchTab(\''+mode+'\',\''+tab+'\')"]').classList.add('active-tab');
+  document.getElementById(mode+'-'+tab).classList.add('active-tab');
+}
+</script>
+</body>
+</html>
