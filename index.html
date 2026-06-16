@@ -129,10 +129,45 @@ footer a{color:#888;text-decoration:none}
       </div>
     </div>
   </div>
+  <div style="padding:0 2rem 2rem">
+    <div onclick="openMode('game')" style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;transition:opacity 0.2s" onmouseover="this.style.opacity='0.6'" onmouseout="this.style.opacity='1'">
+      <span style="font-size:16px">🎮</span>
+      <span style="font-size:11px;color:#888">→</span>
+      <span style="font-size:11px;color:#888;font-style:italic">bored? click here</span>
+    </div>
+  </div>
   <footer>Made with intention · <a href="#">@faizwibowo</a> · Jakarta</footer>
 </div>
 
-<!-- AUDIT PAGE -->
+<!-- MINI GAMES PAGE -->
+<div class="page" id="page-game">
+  <nav>
+    <button class="back-btn" onclick="goHome()"><i class="ti ti-arrow-left"></i> Home</button>
+    <span class="nav-logo">Mini Games</span>
+  </nav>
+  <div style="padding:2rem;max-width:720px;margin:0 auto">
+    <p style="font-size:13px;color:#888;margin-bottom:1.5rem">Selamat datang di sudut paling ga penting dari website ini. Tapi ya, siapa yang nolak main game? 👾</p>
+    <div class="article-card audit-hover" onclick="window.open('#','_blank')" style="display:flex;align-items:center;gap:16px">
+      <div style="width:52px;height:52px;border-radius:10px;background:#FAECE7;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px">🏃</div>
+      <div>
+        <div class="article-meta">Casual Game</div>
+        <h3 style="margin-bottom:4px">Auditor Survival</h3>
+        <p>Survive jadi auditor selama mungkin. Klik dokumen, hindarin complaint, jangan burnout.</p>
+      </div>
+    </div>
+    <div class="article-card" style="display:flex;align-items:center;gap:16px;opacity:0.4;cursor:default">
+      <div style="width:52px;height:52px;border-radius:10px;background:#f5f5f0;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px">🔒</div>
+      <div>
+        <div class="article-meta">Coming soon</div>
+        <h3 style="margin-bottom:4px">???</h3>
+        <p>Game berikutnya lagi diracik. Stay tuned.</p>
+      </div>
+    </div>
+  </div>
+  <footer>faizwibowo.id · Mini Games</footer>
+</div>
+
+
 <div class="page" id="page-audit">
   <nav>
     <button class="back-btn" onclick="goHome()"><i class="ti ti-arrow-left"></i> Home</button>
