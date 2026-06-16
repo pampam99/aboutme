@@ -106,7 +106,7 @@ footer a{color:#888;text-decoration:none}
       <span class="tag teal">Python & SQL</span>
     </div>
     <p style="font-size:13px;color:#888;margin-bottom:1rem">Pilih dunia yang mau lo explore 👇</p>
-    <div class="mode-grid">
+    <div class="mode-grid" style="grid-template-columns:1fr 1fr 1fr;max-width:780px">
       <div class="mode-card audit" onclick="openMode('audit')">
         <div class="mode-icon purple"><i class="ti ti-search" style="color:#534AB7;font-size:22px"></i></div>
         <h2>Auditor</h2>
@@ -118,6 +118,12 @@ footer a{color:#888;text-decoration:none}
         <h2>Financial Planner</h2>
         <p>Analisis saham, financial planning, budgeting tips, dan opini pasar IDX & US equities.</p>
         <span class="mode-cta teal">Masuk ke dunia ini <i class="ti ti-arrow-right"></i></span>
+      </div>
+      <div class="mode-card s2" onclick="openMode('s2')">
+        <div class="mode-icon amber"><i class="ti ti-school" style="color:#854F0B;font-size:22px"></i></div>
+        <h2>S2 Journey</h2>
+        <p>Catatan perjalanan kuliah Magister Akuntansi, riset, dan akademik di BINUS University.</p>
+        <span class="mode-cta amber">Masuk ke dunia ini <i class="ti ti-arrow-right"></i></span>
       </div>
     </div>
   </div>
@@ -207,6 +213,77 @@ footer a{color:#888;text-decoration:none}
     </div>
   </div>
   <footer>faizwibowo.id · Auditor Mode</footer>
+</div>
+
+<!-- S2 PAGE -->
+<div class="page" id="page-s2">
+  <nav>
+    <button class="back-btn" onclick="goHome()"><i class="ti ti-arrow-left"></i> Home</button>
+    <span class="nav-logo">S2 Journey Mode</span>
+    <button class="nav-btn" style="background:#EF9F27;color:#fff;border-color:#EF9F27"><i class="ti ti-school"></i> S2 Journey</button>
+  </nav>
+  <div class="inner-nav">
+    <button class="tab-btn active-tab" style="color:#854F0B;border-bottom-color:#854F0B" onclick="switchTab('s2','about')">About</button>
+    <button class="tab-btn" onclick="switchTab('s2','courses')">Mata Kuliah</button>
+    <button class="tab-btn" onclick="switchTab('s2','notes')">Catatan</button>
+  </div>
+  <div class="tab-content active-tab" id="s2-about">
+    <div class="about-card">
+      <h3>Program</h3>
+      <p>Magister Akuntansi (S2) — BINUS University<br>Target kelulusan: Maret 2028</p>
+    </div>
+    <div class="about-card">
+      <h3>Fokus studi</h3>
+      <p>Forensic accounting, corporate governance, dan AI governance dalam pelaporan keuangan. Menggabungkan latar belakang audit dengan perspektif akademik untuk riset yang relevan dengan praktik.</p>
+    </div>
+    <div class="about-card">
+      <h3>Motivasi</h3>
+      <p>S2 bukan sekadar gelar — ini tentang memperdalam pemahaman di bidang yang gua passion-in: audit, governance, dan finance berbasis data. Sambil kerja, sambil belajar, sambil investasi.</p>
+    </div>
+  </div>
+  <div class="tab-content" id="s2-courses">
+    <div class="blog-header">
+      <h2>Mata kuliah</h2>
+      <span class="coming-badge" style="background:#FAEEDA;color:#854F0B">Ongoing</span>
+    </div>
+    <div class="article-card">
+      <div class="article-meta">Semester aktif</div>
+      <h3>Forensic Accounting</h3>
+      <p>Analisis data keuangan, deteksi fraud, Benford's Law, dan penggunaan tools seperti ACL & Python untuk audit forensik.</p>
+      <span class="article-tag" style="background:#FAEEDA;color:#854F0B">Forensic</span>
+    </div>
+    <div class="article-card">
+      <div class="article-meta">Semester aktif</div>
+      <h3>Corporate Governance</h3>
+      <p>Tata kelola perusahaan, peran dewan direksi, komite audit, dan implikasi governance terhadap laporan keuangan.</p>
+      <span class="article-tag" style="background:#FAEEDA;color:#854F0B">Governance</span>
+    </div>
+    <div class="article-card">
+      <div class="article-meta">Semester aktif</div>
+      <h3>Business Ethics</h3>
+      <p>Etika bisnis dan AI governance — termasuk studi kasus penggunaan AI dalam pelaporan keuangan perusahaan.</p>
+      <span class="article-tag" style="background:#FAEEDA;color:#854F0B">Ethics & AI</span>
+    </div>
+  </div>
+  <div class="tab-content" id="s2-notes">
+    <div class="blog-header">
+      <h2>Catatan akademik</h2>
+      <span class="coming-badge" style="background:#FAEEDA;color:#854F0B">Coming soon</span>
+    </div>
+    <div class="article-card">
+      <div class="article-meta">Draft · Business Ethics</div>
+      <h3>AI Governance dalam Pelaporan Keuangan: Studi Kasus</h3>
+      <p>Tugas S2 tentang implikasi penggunaan AI di proses audit dan pelaporan keuangan modern.</p>
+      <span class="article-tag" style="background:#FAEEDA;color:#854F0B">Ethics & AI</span>
+    </div>
+    <div class="article-card">
+      <div class="article-meta">Draft · Forensic</div>
+      <h3>Implementasi Benford's Law dengan Python: Studi Kasus Payroll</h3>
+      <p>Analisis dataset payroll menggunakan Python untuk mendeteksi anomali distribusi angka.</p>
+      <span class="article-tag" style="background:#FAEEDA;color:#854F0B">Forensic</span>
+    </div>
+  </div>
+  <footer>faizwibowo.id · S2 Journey Mode</footer>
 </div>
 
 <!-- FIN PLANNER PAGE -->
