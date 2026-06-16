@@ -402,7 +402,16 @@ footer a{color:#888;text-decoration:none}
 </div>
 
 <script>
-function goHome(){
+function showArticle(id){
+  const list=id.replace(/-article-\d+$/,'-article-list');
+  document.getElementById(list).style.display='none';
+  document.getElementById(id).style.display='block';
+}
+function hideArticle(id){
+  const list=id.replace(/-article-\d+$/,'-article-list');
+  document.getElementById(id).style.display='none';
+  document.getElementById(list).style.display='block';
+}
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-home').classList.add('active');
 }
