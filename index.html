@@ -80,6 +80,8 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2
 .metric-sub{font-size:11px;color:#888;margin-top:2px}
 .article-body{line-height:1.9;font-size:14px;color:#333}
 .article-body p{margin-bottom:1rem}
+.back-article{display:flex;align-items:center;gap:6px;border:none;background:none;cursor:pointer;font-size:13px;color:#555;margin-bottom:1.5rem;padding:0;font-family:inherit}
+.back-article:hover{color:#1a1a1a}
 footer{text-align:center;padding:2rem;border-top:0.5px solid #e0e0d8;font-size:12px;color:#888;margin-top:2rem}
 footer a{color:#888;text-decoration:none}
 </style>
@@ -139,35 +141,7 @@ footer a{color:#888;text-decoration:none}
   <footer>Made with intention · <a href="#">@faizwibowo</a> · Jakarta</footer>
 </div>
 
-<!-- MINI GAMES PAGE -->
-<div class="page" id="page-game">
-  <nav>
-    <button class="back-btn" onclick="goHome()"><i class="ti ti-arrow-left"></i> Home</button>
-    <span class="nav-logo">Mini Games</span>
-  </nav>
-  <div style="padding:2rem;max-width:720px;margin:0 auto">
-    <p style="font-size:13px;color:#888;margin-bottom:1.5rem">Selamat datang di sudut paling ga penting dari website ini. Tapi ya, siapa yang nolak main game? 👾</p>
-    <div class="article-card audit-hover" onclick="window.open('#','_blank')" style="display:flex;align-items:center;gap:16px">
-      <div style="width:52px;height:52px;border-radius:10px;background:#FAECE7;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px">🏃</div>
-      <div>
-        <div class="article-meta">Casual Game</div>
-        <h3 style="margin-bottom:4px">Auditor Survival</h3>
-        <p>Survive jadi auditor selama mungkin. Klik dokumen, hindarin complaint, jangan burnout.</p>
-      </div>
-    </div>
-    <div class="article-card" style="display:flex;align-items:center;gap:16px;opacity:0.4;cursor:default">
-      <div style="width:52px;height:52px;border-radius:10px;background:#f5f5f0;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:24px">🔒</div>
-      <div>
-        <div class="article-meta">Coming soon</div>
-        <h3 style="margin-bottom:4px">???</h3>
-        <p>Game berikutnya lagi diracik. Stay tuned.</p>
-      </div>
-    </div>
-  </div>
-  <footer>faizwibowo.id · Mini Games</footer>
-</div>
-
-
+<!-- AUDIT PAGE -->
 <div class="page" id="page-audit">
   <nav>
     <button class="back-btn" onclick="goHome()"><i class="ti ti-arrow-left"></i> Home</button>
@@ -214,9 +188,11 @@ footer a{color:#888;text-decoration:none}
   </div>
 
   <div class="tab-content" id="audit-blog">
+
+    <!-- LIST UTAMA -->
     <div id="audit-article-list">
       <div class="blog-header"><h2>Articles — Audit</h2></div>
-      <div class="article-card audit-hover" onclick="showArticle('audit-art-1','audit-article-list')">
+      <div class="article-card audit-hover" onclick="showSection('audit-art-1','audit-article-list')">
         <div class="article-meta">Karier · Pengalaman Pribadi</div>
         <h3>3 Tahun Jadi Auditor: Dari Fresh Grad yang Bingung sampai Sadar Burnout itu Nyata</h3>
         <p>Perjalanan gua dari fresh grad yang overwhelmed sampai akhirnya sadar burnout itu nyata dan perlu didengarkan.</p>
@@ -224,7 +200,7 @@ footer a{color:#888;text-decoration:none}
         <span class="article-tag purple" style="margin-left:4px">Audit</span>
         <span class="article-tag purple" style="margin-left:4px">Tips</span>
       </div>
-      <div class="article-card audit-hover" onclick="showArticle('audit-prosedur','audit-article-list')">
+      <div class="article-card audit-hover" onclick="showSection('audit-prosedur','audit-article-list')">
         <div class="article-meta">Prosedur Audit</div>
         <h3>Prosedur Audit</h3>
         <p>Panduan prosedur audit per area, dari aset tetap sampai liabilitas. Cocok buat junior auditor yang mau paham alurnya.</p>
@@ -233,11 +209,32 @@ footer a{color:#888;text-decoration:none}
       </div>
     </div>
 
+    <!-- ARTIKEL: 3 TAHUN JADI AUDITOR -->
+    <div id="audit-art-1" style="display:none">
+      <button class="back-article" onclick="showSection('audit-article-list','audit-art-1')"><i class="ti ti-arrow-left"></i> Kembali ke daftar</button>
+      <div class="article-meta">Karier · Pengalaman Pribadi</div>
+      <h3 style="font-size:18px;font-weight:500;margin-bottom:1.5rem;line-height:1.5">3 Tahun Jadi Auditor: Dari Fresh Grad yang Bingung sampai Sadar Burnout itu Nyata</h3>
+      <div class="article-body">
+        <p>Gua mulai karier sebagai fresh graduate, langsung terjun jadi Associate di RSM Indonesia di bagian Financial Services, salah satu industri yang paling strict soal regulasi. Jujur? Susah banget. Bukan cuma soal teknisnya, tapi soal tekanannya juga.</p>
+        <p>Namanya auditor baru, push dari senior, manager, sampai klien itu udah makanan sehari-hari. Deadline mepet, ekspektasi tinggi, dan gua belum tau apa-apa. Tahun pertama itu berat. Tapi gua lewatin.</p>
+        <p>Masuk tahun kedua, mulai ada titik terang. Gua inget banget ada kalimat yang sering didenger: <em>"semakin lo ngerti, semakin gampang."</em> Tapi gua belajar bahwa kalimat itu setengah bohong. Dunia audit itu dinamis, regulasi berubah, klien berubah, ekspektasi berubah. Ga ada yang bener-bener "settle." Yang berubah cuma cara lo ngehadapinnya.</p>
+        <p>Tahun ketiga, secara teknis gua udah jauh lebih paham. Tapi justru di situ burnout-nya makin terasa. Lo ngerti apa yang harus dikerjain, tapi energi lo udah beda. Itu sinyal yang akhirnya gua dengerin.</p>
+        <p>Gua memutuskan resign. Bukan karena menyerah, tapi untuk melanjutkan S2 Akuntansi dan grow di jalur yang lebih gua mau.</p>
+        <p><strong style="color:#1a1a1a">Tips dari gua buat yang mau masuk audit:</strong><br>Kuasain Excel dulu. Serius. Akuntansi itu pada dasarnya logika, sesuatu yang keluar pasti ada yang masuk (debit-kredit). Kalau lo udah paham logika itu dan bisa eksekusi di Excel, tinggal nambah tools analitik lain. Sisanya bakal lebih gampang diikutin.</p>
+      </div>
+      <div style="margin-top:1.5rem">
+        <span class="article-tag purple">Karier</span>
+        <span class="article-tag purple" style="margin-left:4px">Audit</span>
+        <span class="article-tag purple" style="margin-left:4px">Tips</span>
+      </div>
+    </div>
+
+    <!-- SUB: PROSEDUR AUDIT -->
     <div id="audit-prosedur" style="display:none">
-      <button onclick="hideArticle('audit-prosedur','audit-article-list')" style="display:flex;align-items:center;gap:6px;border:none;background:none;cursor:pointer;font-size:13px;color:#555;margin-bottom:1.5rem;padding:0;font-family:inherit"><i class="ti ti-arrow-left"></i> Kembali ke daftar</button>
+      <button class="back-article" onclick="showSection('audit-article-list','audit-prosedur')"><i class="ti ti-arrow-left"></i> Kembali ke daftar</button>
       <div class="blog-header"><h2>Prosedur Audit</h2></div>
       <p style="font-size:13px;color:#888;margin-bottom:1.5rem">Breakdown prosedur audit per area. Klik salah satu untuk baca lebih lanjut.</p>
-      <div class="article-card audit-hover" onclick="showArticle('audit-art-aset','audit-prosedur')">
+      <div class="article-card audit-hover" onclick="showSection('audit-art-aset','audit-prosedur')">
         <div class="article-meta">Prosedur Audit · Aset</div>
         <h3>Aset Tetap</h3>
         <p>Prosedur audit aset tetap dari vouching, physical inspection, sampai recalculation depresiasi.</p>
@@ -257,8 +254,9 @@ footer a{color:#888;text-decoration:none}
       </div>
     </div>
 
+    <!-- ARTIKEL: ASET TETAP -->
     <div id="audit-art-aset" style="display:none">
-      <button onclick="hideArticle('audit-art-aset','audit-prosedur')" style="display:flex;align-items:center;gap:6px;border:none;background:none;cursor:pointer;font-size:13px;color:#555;margin-bottom:1.5rem;padding:0;font-family:inherit"><i class="ti ti-arrow-left"></i> Kembali ke Prosedur Audit</button>
+      <button class="back-article" onclick="showSection('audit-prosedur','audit-art-aset')"><i class="ti ti-arrow-left"></i> Kembali ke Prosedur Audit</button>
       <div class="article-meta">Prosedur Audit · Aset Tetap</div>
       <h3 style="font-size:18px;font-weight:500;margin-bottom:1.5rem;line-height:1.5">Prosedur Audit Aset Tetap</h3>
       <div class="article-body">
@@ -275,24 +273,7 @@ footer a{color:#888;text-decoration:none}
         <span class="article-tag purple" style="margin-left:4px">Teknikal</span>
       </div>
     </div>
-    <div id="audit-art-1" style="display:none">
-      <button onclick="hideArticle('audit-art-1','audit-article-list')" style="display:flex;align-items:center;gap:6px;border:none;background:none;cursor:pointer;font-size:13px;color:#555;margin-bottom:1.5rem;padding:0;font-family:inherit"><i class="ti ti-arrow-left"></i> Kembali ke daftar</button>
-      <div class="article-meta">Karier · Pengalaman Pribadi</div>
-      <h3 style="font-size:18px;font-weight:500;margin-bottom:1.5rem;line-height:1.5">3 Tahun Jadi Auditor: Dari Fresh Grad yang Bingung sampai Sadar Burnout itu Nyata</h3>
-      <div class="article-body">
-        <p>Gua mulai karier sebagai fresh graduate, langsung terjun jadi Associate di RSM Indonesia di bagian Financial Services, salah satu industri yang paling strict soal regulasi. Jujur? Susah banget. Bukan cuma soal teknisnya, tapi soal tekanannya juga.</p>
-        <p>Namanya auditor baru, push dari senior, manager, sampai klien itu udah makanan sehari-hari. Deadline mepet, ekspektasi tinggi, dan gua belum tau apa-apa. Tahun pertama itu berat. Tapi gua lewatin.</p>
-        <p>Masuk tahun kedua, mulai ada titik terang. Gua inget banget ada kalimat yang sering didenger: <em>"semakin lo ngerti, semakin gampang."</em> Tapi gua belajar bahwa kalimat itu setengah bohong. Dunia audit itu dinamis, regulasi berubah, klien berubah, ekspektasi berubah. Ga ada yang bener-bener "settle." Yang berubah cuma cara lo ngehadapinnya.</p>
-        <p>Tahun ketiga, secara teknis gua udah jauh lebih paham. Tapi justru di situ burnout-nya makin terasa. Lo ngerti apa yang harus dikerjain, tapi energi lo udah beda. Itu sinyal yang akhirnya gua dengerin.</p>
-        <p>Gua memutuskan resign. Bukan karena menyerah, tapi untuk melanjutkan S2 Akuntansi dan grow di jalur yang lebih gua mau.</p>
-        <p><strong style="color:#1a1a1a">Tips dari gua buat yang mau masuk audit:</strong><br>Kuasain Excel dulu. Serius. Akuntansi itu pada dasarnya logika, sesuatu yang keluar pasti ada yang masuk (debit-kredit). Kalau lo udah paham logika itu dan bisa eksekusi di Excel, tinggal nambah tools analitik lain. Sisanya bakal lebih gampang diikutin.</p>
-      </div>
-      <div style="margin-top:1.5rem">
-        <span class="article-tag purple">Karier</span>
-        <span class="article-tag purple" style="margin-left:4px">Audit</span>
-        <span class="article-tag purple" style="margin-left:4px">Tips</span>
-      </div>
-    </div>
+
   </div>
 
   <div class="tab-content" id="audit-exp">
@@ -512,13 +493,9 @@ function switchTab(mode,tab){
   page.querySelector('[onclick="switchTab(\''+mode+'\',\''+tab+'\')"]').classList.add('active-tab');
   document.getElementById(mode+'-'+tab).classList.add('active-tab');
 }
-function showArticle(artId, listId){
-  document.getElementById(listId).style.display='none';
-  document.getElementById(artId).style.display='block';
-}
-function hideArticle(artId, listId){
-  document.getElementById(artId).style.display='none';
-  document.getElementById(listId).style.display='block';
+function showSection(showId, hideId){
+  document.getElementById(hideId).style.display='none';
+  document.getElementById(showId).style.display='block';
 }
 </script>
 </body>
