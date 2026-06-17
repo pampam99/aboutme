@@ -224,6 +224,56 @@ footer a{color:#888;text-decoration:none}
         <span class="article-tag purple" style="margin-left:4px">Audit</span>
         <span class="article-tag purple" style="margin-left:4px">Tips</span>
       </div>
+      <div class="article-card audit-hover" onclick="showArticle('audit-prosedur','audit-article-list')">
+        <div class="article-meta">Prosedur Audit</div>
+        <h3>Prosedur Audit</h3>
+        <p>Panduan prosedur audit per area, dari aset tetap sampai liabilitas. Cocok buat junior auditor yang mau paham alurnya.</p>
+        <span class="article-tag purple">Prosedur</span>
+        <span class="article-tag purple" style="margin-left:4px">Teknikal</span>
+      </div>
+    </div>
+
+    <div id="audit-prosedur" style="display:none">
+      <button onclick="hideArticle('audit-prosedur','audit-article-list')" style="display:flex;align-items:center;gap:6px;border:none;background:none;cursor:pointer;font-size:13px;color:#555;margin-bottom:1.5rem;padding:0;font-family:inherit"><i class="ti ti-arrow-left"></i> Kembali ke daftar</button>
+      <div class="blog-header"><h2>Prosedur Audit</h2></div>
+      <p style="font-size:13px;color:#888;margin-bottom:1.5rem">Breakdown prosedur audit per area. Klik salah satu untuk baca lebih lanjut.</p>
+      <div class="article-card audit-hover" onclick="showArticle('audit-art-aset','audit-prosedur')">
+        <div class="article-meta">Prosedur Audit · Aset</div>
+        <h3>Aset Tetap</h3>
+        <p>Prosedur audit aset tetap dari vouching, physical inspection, sampai recalculation depresiasi.</p>
+        <span class="article-tag purple">Aset Tetap</span>
+      </div>
+      <div class="article-card" style="opacity:0.4;cursor:default">
+        <div class="article-meta">Coming soon</div>
+        <h3>Kas & Setara Kas</h3>
+        <p>Prosedur audit kas, bank confirmation, dan cash count.</p>
+        <span class="article-tag purple">Kas</span>
+      </div>
+      <div class="article-card" style="opacity:0.4;cursor:default">
+        <div class="article-meta">Coming soon</div>
+        <h3>Piutang Usaha</h3>
+        <p>Prosedur konfirmasi piutang, aging analysis, dan penilaian cadangan kerugian.</p>
+        <span class="article-tag purple">Piutang</span>
+      </div>
+    </div>
+
+    <div id="audit-art-aset" style="display:none">
+      <button onclick="hideArticle('audit-art-aset','audit-prosedur')" style="display:flex;align-items:center;gap:6px;border:none;background:none;cursor:pointer;font-size:13px;color:#555;margin-bottom:1.5rem;padding:0;font-family:inherit"><i class="ti ti-arrow-left"></i> Kembali ke Prosedur Audit</button>
+      <div class="article-meta">Prosedur Audit · Aset Tetap</div>
+      <h3 style="font-size:18px;font-weight:500;margin-bottom:1.5rem;line-height:1.5">Prosedur Audit Aset Tetap</h3>
+      <div class="article-body">
+        <p>Aset tetap adalah salah satu area audit yang paling sering jadi perhatian karena nilainya yang material dan risiko salah saji yang cukup tinggi. Berikut prosedur yang umumnya dilakukan auditor.</p>
+        <p><strong style="color:#1a1a1a">1. Vouching Penambahan Aset</strong><br>Pilih sampel penambahan aset tetap selama periode berjalan. Periksa dokumen pendukungnya: invoice, PO, berita acara serah terima, sampai approval dari manajemen. Tujuannya memastikan aset yang dicatat betul-betul ada dan sudah diotorisasi.</p>
+        <p><strong style="color:#1a1a1a">2. Physical Inspection</strong><br>Lakukan pengecekan fisik aset secara sampling. Pastikan aset yang tercatat di buku memang ada secara fisik, kondisinya sesuai, dan masih digunakan untuk operasional perusahaan.</p>
+        <p><strong style="color:#1a1a1a">3. Recalculation Depresiasi</strong><br>Hitung ulang beban depresiasi berdasarkan metode yang digunakan perusahaan (garis lurus, saldo menurun, dll). Bandingkan dengan angka yang dicatat. Periksa juga konsistensi penerapan metode dari tahun ke tahun.</p>
+        <p><strong style="color:#1a1a1a">4. Cut-off Testing</strong><br>Pastikan penambahan dan pelepasan aset dicatat di periode yang tepat. Aset yang masuk di akhir periode sering jadi area rawan salah catat.</p>
+        <p><strong style="color:#1a1a1a">5. Review Pelepasan Aset</strong><br>Periksa apakah ada aset yang dilepas selama periode berjalan. Pastikan gain atau loss on disposal sudah dihitung dan dicatat dengan benar.</p>
+      </div>
+      <div style="margin-top:1.5rem">
+        <span class="article-tag purple">Aset Tetap</span>
+        <span class="article-tag purple" style="margin-left:4px">Prosedur</span>
+        <span class="article-tag purple" style="margin-left:4px">Teknikal</span>
+      </div>
     </div>
     <div id="audit-art-1" style="display:none">
       <button onclick="hideArticle('audit-art-1','audit-article-list')" style="display:flex;align-items:center;gap:6px;border:none;background:none;cursor:pointer;font-size:13px;color:#555;margin-bottom:1.5rem;padding:0;font-family:inherit"><i class="ti ti-arrow-left"></i> Kembali ke daftar</button>
